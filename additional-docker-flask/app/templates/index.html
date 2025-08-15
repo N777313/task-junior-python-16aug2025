@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Продукты</title></head>
+<body>
+    <h1>Список продуктов</h1>
+    {% if low_stock %}
+        <p>Товары с количеством меньше {{ threshold }}</p>
+    {% endif %}
+    <table border="1">
+        <tr><th>ID</th><th>Название</th><th>Цена</th><th>Кол-во</th><th></th></tr>
+        {% for p in products %}
+        <tr>
+            <td>{{ p[0] }}</td>
+            <td>{{ p[1] }}</td>
+            <td>{{ p[2] }}</td>
+            <td>{{ p[3] }}</td>
+            <td><a href="{{ url_for('update', product_id=p[0]) }}">Обновить цену</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('low_stock') }}">Товары с остатком < 10</a></p>
+</body>
+</html>

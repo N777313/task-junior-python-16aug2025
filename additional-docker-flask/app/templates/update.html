@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Обновить цену</title></head>
+<body>
+    <h1>Обновить цену для {{ product[1] }}</h1>
+    <form method="post">
+        <label>Новая цена:</label>
+        <input type="number" step="0.01" name="price" value="{{ product[2] }}">
+        <button type="submit">Сохранить</button>
+    </form>
+    <p><a href="{{ url_for('index') }}">Назад</a></p>
+</body>
+</html>
